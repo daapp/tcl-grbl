@@ -108,6 +108,7 @@ snit::type grbl {
                 {^Grbl\s+(\S+)\s+\['\$' for help\]$} {
                     # read banner
                     set initBanner $l
+                    set lastResult $l
                     set firmwareVersion [lindex $M 1]
                     if {[info exists hooks(init)] && $hooks(init) ne ""} {
                         uplevel #0 [linsert $hooks(init) end $firmwareVersion]
