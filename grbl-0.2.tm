@@ -11,7 +11,7 @@ snit::type grbl {
     option -inittimeout -default 3000 -type snit::integer
 
     component port
-    delegate typemethod getPorts using {rs232 getPorts}
+    delegate typemethod getPorts using {serialport getPorts}
 
     variable initBanner ""
     variable firmwareVersion ""
@@ -43,7 +43,7 @@ snit::type grbl {
 
         $self configurelist $args
 
-        install port using rs232 %AUTO% \
+        install port using serialport %AUTO% \
             -port $options(-port) \
             -mode $options(-mode) \
             -eol $options(-eol) \
